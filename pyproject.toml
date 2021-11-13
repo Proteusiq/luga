@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "luga"
-version = "0.1.0"
+version = "0.1.3"
 description = "Sensing the language of the text using Machine Learning"
 authors = ["Prayson W. Daniel <praysonwilfred@gmail.com>"]
 

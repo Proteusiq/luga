@@ -1,5 +1,5 @@
 from typing import List, Optional
-from lunga.artifacts import fmodel, beautify_one, beautify_many, Language
+from luga.artifacts import fmodel, beautify_one, beautify_many, Language
 
 
 def language(text: str, threshold: Optional[float] = 0.5) -> Language:

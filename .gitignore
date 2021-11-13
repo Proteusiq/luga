@@ -39,3 +39,4 @@ pip-wheel-metadata
 # ignore the model
 *.bin 
 *pycache*
+dist

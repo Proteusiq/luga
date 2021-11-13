@@ -1,4 +1,4 @@
-from lunga import language
+from luga import language
 
 # use parameterize with different languages
 

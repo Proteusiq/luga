@@ -1,1 +1,1 @@
-from lunga.lunga import language, languages  # noqa
+from luga.luga import language, languages  # noqa

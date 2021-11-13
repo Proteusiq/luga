@@ -12,7 +12,7 @@ __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
 __MODEL_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
 
 if not __MODEL_FILE.exists():
-    print(f"Downloading language model from {__MODEL_URL!r}")
+    print(f"Downloading language model from {__MODEL_URL!r}. Runs only once!")
     __MODEL_PATH.mkdir(exist_ok=True)
     with Client() as client, __MODEL_FILE.open("wb") as f:
         model_content = client.get(__MODEL_URL)

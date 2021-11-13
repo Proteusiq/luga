@@ -1,4 +1,4 @@
-from lunga import languages
+from luga import languages
 
 # use parameterize with different languages
 def test_sentences():
