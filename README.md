@@ -24,9 +24,9 @@ print(language("the world has ended yesterday"))
 ### Comming soon ...
 
 #### TODO:
-- [] refactor artifacts.py
-- [] auto checkers with pre-commit | invoke
-- [] write more tests
-- [] write github actions
-- [] create a smart data checker (a fast List[str], what do with none strings)
-- [] make it faster with Cython
+- [ ] refactor artifacts.py
+- [ ] auto checkers with pre-commit | invoke
+- [ ] write more tests
+- [ ] write github actions
+- [ ] create a smart data checker (a fast List[str], what do with none strings)
+- [ ] make it faster with Cython
