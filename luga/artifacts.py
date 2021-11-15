@@ -1,11 +1,10 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
 
-from fasttext import load_model, FastText  # type: ignore
+from fasttext import FastText, load_model  # type: ignore
 from httpx import Client
 from numpy.typing import NDArray
-
 
 __MODEL_PATH = Path(__file__).parent / "models"
 __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
@@ -64,7 +63,8 @@ def beautify_many(
 
         if score < threshold:
             results.append(Language())
-
-        results.append(Language(name=lang[0].replace("__label__", ""), score=score))
+            
+        else:
+            results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
     return results
