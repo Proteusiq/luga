@@ -63,7 +63,7 @@ def beautify_many(
 
         if score < threshold:
             results.append(Language())
-            
+
         else:
             results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
