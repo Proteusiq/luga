@@ -1,9 +1,8 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, Tuple
-
+import httpx
 from fasttext import FastText, load_model  # type: ignore
-from httpx import Client
 from numpy.typing import NDArray
 
 __MODEL_PATH = Path(__file__).parent / "models"
@@ -13,7 +12,9 @@ __MODEL_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176
 if not __MODEL_FILE.exists():
     # print(f"Downloading language model from {__MODEL_URL!r}. Runs only once!")
     __MODEL_PATH.mkdir(exist_ok=True)
-    with Client() as client, __MODEL_FILE.open("wb") as f:
+
+    timeout = httpx.Timeout(10.0, connect=60.0)
+    with httpx.Client(timeout=timeout) as client, __MODEL_FILE.open("wb") as f:
         model_content = client.get(__MODEL_URL)
         f.write(model_content.content)
     # print("Downloading completed!")

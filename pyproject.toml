@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "luga"
-version = "0.1.5"
+version = "0.1.6"
 description = "Sensing the language of the text using Machine Learning"
 authors = ["Prayson W. Daniel <praysonwilfred@gmail.com>"]
 
@@ -8,7 +8,7 @@ authors = ["Prayson W. Daniel <praysonwilfred@gmail.com>"]
 python = "^3.7"
 httpx = "^0.20.0"
 fasttext = "^0.9.2"
-numpy = "^1.20"
+numpy = "^1.21"
 
 [tool.poetry.dev-dependencies]
 black = "^21.10b0"
