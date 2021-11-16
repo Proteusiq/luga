@@ -2,9 +2,9 @@ Luga
 ==============================
 - A blazing fast language detection using fastText's language models
 
-_Luga_ is a Swahili word for language. fastText provides a blazing fast
-language detection. It is though a bit funky to download and load models.
-fastText API is also beauty-less. This is why _luga_ was born.
+_Luga_ is a Swahili word for language. fastText provides blazing-fast
+language detection. It is, though, a bit funky to download and load models.
+fastText API is also beauty-less. Here is where _luga_ comes in. We abstract unnecessary steps and allow you to do precisely one thing: detecting text language.
 
 
 ### Installation
@@ -13,7 +13,7 @@ python -m pip install -U luga
 ```
 
 ### Usage:
-Note: First usage downloads the model for you. This is done only once.
+⚠️ Note: The first usage downloads the model for you. It will take a bit longer to import on first usage. It is done only once.
 
 ```python
 from luga import language
