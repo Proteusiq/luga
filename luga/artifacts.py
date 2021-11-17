@@ -5,26 +5,51 @@ import httpx
 from fasttext import FastText, load_model  # type: ignore
 from numpy.typing import NDArray
 
+
 __MODEL_PATH = Path(__file__).parent / "models"
 __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
 __MODEL_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
 
-if not __MODEL_FILE.exists():
-    # print(f"Downloading language model from {__MODEL_URL!r}. Runs only once!")
-    __MODEL_PATH.mkdir(exist_ok=True)
 
-    timeout = httpx.Timeout(10.0, connect=60.0)
-    with httpx.Client(timeout=timeout) as client, __MODEL_FILE.open("wb") as f:
-        model_content = client.get(__MODEL_URL)
-        f.write(model_content.content)
-    # print("Downloading completed!")
+def model_loader(*, model_url: str, re_download: bool = False) -> None:
+    """Model Downloader
+
+    Args:
+        model_url (str): url link to fasttext language model
+        re_download (bool, optional): overides a downloaded model. Defaults to False.
+    Returns:
+        None
+    """
+
+    if not __MODEL_FILE.exists() or re_download:
+        # print(f"Downloading language model from {__MODEL_URL!r}. Runs only once!")
+        __MODEL_PATH.mkdir(exist_ok=True)
+
+        timeout = httpx.Timeout(10.0, connect=60.0)
+        with httpx.Client(timeout=timeout) as client, __MODEL_FILE.open(
+            "wb"
+        ) as f_model:
+            model_content = client.get(model_url)
+            f_model.write(model_content.content)
+        # print("Downloading completed!")
 
 
-# mute warning with eprint
-# Warning : `load_model` does not return WordVectorModel or SupervisedModel
-#  any more, but a `FastText` object which is very similar.
-FastText.eprint = lambda x: None
-fmodel = load_model(f"{__MODEL_FILE}")
+def model_deleter(*, model_file: Path = __MODEL_FILE) -> bool:
+    """Model Remover
+
+    Args:
+        model_file (Path, optional): path to where the model is.
+        Defaults to __MODEL_FILE.
+
+    Returns:
+        bool: True if deletion was successful, else False
+    """
+
+    if not model_file.exists():
+        return False
+
+    model_file.unlink()
+    return True
 
 
 @dataclass(frozen=True)
@@ -69,3 +94,12 @@ def beautify_many(
             results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
     return results
+
+
+# mute warning with eprint
+# Warning : `load_model` does not return WordVectorModel or SupervisedModel
+#  any more, but a `FastText` object which is very similar.
+# pylint: disable=E1111
+FastText.eprint = lambda x: None
+model_loader(model_url=__MODEL_URL)
+fmodel = load_model(f"{__MODEL_FILE}")

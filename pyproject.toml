@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "luga"
-version = "0.1.6"
+version = "0"
 description = "Sensing the language of the text using Machine Learning"
 authors = ["Prayson W. Daniel <praysonwilfred@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry-version-plugin]
+source = "init"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -16,6 +20,8 @@ pytest = "flake8"
 flake8 = "^4.0.1"
 pyupgrade = "^2.29.0"
 mypy = "^0.910"
+pre-commit = "^2.15.0"
+pylint = "^2.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
