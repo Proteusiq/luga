@@ -1,3 +1,3 @@
-from luga.luga import language, languages  # noqa
+from luga.luga import language, languages  # noqa: F401
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
