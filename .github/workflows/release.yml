@@ -53,7 +53,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.LUGA_TOKEN }}
           draft: false
           prerelease: steps.check-version.outputs.prerelease == 'true'
 
