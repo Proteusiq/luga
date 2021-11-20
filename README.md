@@ -52,6 +52,14 @@ fmodel.predict(["the world has ended yesterday"])
 poetry run pre-commit install
 ```
 
+# Release Flow
+`git tag -l:` lists tags
+`git tag v*.*.*`
+`git push origin tag v*.*.*`
+
+# to delete tag:
+`git tag -d v*.*.* && git push origin tag -d v*.*.*`
+
 #### TODO:
 - [ ] refactor artifacts.py
 - [ ] auto checkers with pre-commit | invoke
