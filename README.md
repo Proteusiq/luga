@@ -52,18 +52,21 @@ fmodel.predict(["the world has ended yesterday"])
 poetry run pre-commit install
 ```
 
-# Release Flow
-`git tag -l:` lists tags
-`git tag v*.*.*`
-`git push origin tag v*.*.*`
+## Release Flow
+```bash
+# assumes git push is completed
+git tag -l #  lists tags
+git tag v*.*.* # Major.Minor.Fix
+git push origin tag v*.*.*
 
 # to delete tag:
-`git tag -d v*.*.* && git push origin tag -d v*.*.*`
+git tag -d v*.*.* && git push origin tag -d v*.*.*
+```
 
 #### TODO:
-- [ ] refactor artifacts.py
-- [ ] auto checkers with pre-commit | invoke
-- [ ] write more tests
-- [ ] write github actions
+- [X] refactor artifacts.py
+- [X] auto checkers with pre-commit | invoke
+- [X] write more tests
+- [X] write github actions
 - [ ] create a smart data checker (a fast List[str], what do with none strings)
 - [ ] make it faster with Cython
