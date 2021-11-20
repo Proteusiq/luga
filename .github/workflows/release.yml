@@ -41,10 +41,11 @@ jobs:
       - name: Install Dependencies
         run: poetry install
 
-      - name: Run Pre-commits
+      - name: Run Pre-commits and Tests
         run: |
             poetry run pre-commit install
             poetry run pre-commit run --all-files
+            PYTHONPATH=luga/ poetry run python -m pytest --verbose --runslow tests/
 
   release:
     name: Release

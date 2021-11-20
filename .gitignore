@@ -37,6 +37,6 @@ pip-wheel-metadata
 
 .vscode
 # ignore the model
-*.bin 
+*.bin
 *pycache*
 dist
