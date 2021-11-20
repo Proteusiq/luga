@@ -1,10 +1,11 @@
 from luga import languages
 
 
-# use parameterize with different languages
-def test_sentences():
+def test_sentences(text_examples):
 
-    responses = languages(["this is just a simple test", "jeg elsker dig"])
+    responses = languages(text_examples["text"])
+    pred_langs = [response.name for response in responses]
+    pred_scores = [response.score > 0.5 for response in responses]
 
-    assert responses[1].name == "da", "language detection failed"
-    assert responses[1].score > 0.5, "score went boom!"
+    assert pred_langs == text_examples["lang"], "language detection failed"
+    assert all(pred_scores), "score went boom!"
