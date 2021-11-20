@@ -48,6 +48,7 @@ jobs:
 
   release:
     name: Release
+    needs: qa
     runs-on: ubuntu-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
