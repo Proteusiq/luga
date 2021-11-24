@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Any, List, Literal, Optional, Tuple, Union
 import httpx
 from fasttext import FastText, load_model  # type: ignore
 from numpy.typing import NDArray
@@ -11,7 +11,7 @@ __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
 __MODEL_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
 
 
-def model_loader(*, model_url: str, re_download: bool = False) -> None:
+def model_loader(*, model_url: str, re_download: Optional[bool] = False) -> None:
     """Model Downloader
 
     Args:
@@ -58,6 +58,15 @@ class Language:
     score: float = field(
         default=0.0, metadata={"trustability": "probability of prediction"}
     )
+
+    @staticmethod
+    def keys() -> List[str]:
+        return ["name", "score"]
+
+    def __getitem__(self, key: Literal["name", "score"]) -> Union[Any, str, float]:
+        item = {"name": self.name, "score": self.score}
+
+        return item.get(key)
 
 
 def beautify_one(
