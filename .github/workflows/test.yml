@@ -10,10 +10,10 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
     strategy:
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9]
       fail-fast: false
 
     steps:

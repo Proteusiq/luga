@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, List, Literal, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union
 import httpx
 from fasttext import FastText, load_model  # type: ignore
 from numpy.typing import NDArray
@@ -63,7 +63,7 @@ class Language:
     def keys() -> List[str]:
         return ["name", "score"]
 
-    def __getitem__(self, key: Literal["name", "score"]) -> Union[Any, str, float]:
+    def __getitem__(self, key: str) -> Union[Any, str, float]:
         item = {"name": self.name, "score": self.score}
 
         return item.get(key)
