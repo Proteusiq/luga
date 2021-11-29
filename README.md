@@ -2,12 +2,17 @@ Luga
 ==============================
 - A blazing fast language detection using fastText's language models
 
+![Languages](https://user-images.githubusercontent.com/14926709/143822756-8fd6437f-6c99-4a9f-9718-37f086955583.png)
+
+
 _Luga_ is a Swahili word for language. [fastText](https://github.com/facebookresearch/fastText) provides blazing-fast
 language detection tool. Lamentably, [fastText's](https://fasttext.cc/docs/en/support.html) API is beauty-less and the documentation is a bit fuzzy.
 It is also funky that we have to manually [download](https://fasttext.cc/docs/en/language-identification.html) and load models.
 
 Here is where _luga_ comes in. We abstract unnecessary steps and allow you to do precisely one thing: detecting text language.
 
+#### Images Credits
+[Stand Still. Stay Silent](http://sssscomic.com/index.php) - The relationships between Indo-European and Uralic languages by Minna Sundberg. 
 
 ### Installation
 ```bash
