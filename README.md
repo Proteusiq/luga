@@ -11,7 +11,7 @@ It is also funky that we have to manually [download](https://fasttext.cc/docs/en
 
 Here is where _luga_ comes in. We abstract unnecessary steps and allow you to do precisely one thing: detecting text language.
 
-#### Images Credits
+#### cover image
 [Stand Still. Stay Silent](http://sssscomic.com/index.php) - The relationships between Indo-European and Uralic languages by Minna Sundberg. 
 
 ### Installation
