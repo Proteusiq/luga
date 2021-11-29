@@ -48,7 +48,7 @@ fmodel.predict(["the world has ended yesterday"])
 
 # ([['__label__en']], [array([0.98046654], dtype=float32)])
 ```
-### Comming soon ...
+### example soon ...
 
 
 ### Dev:
