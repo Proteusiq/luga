@@ -14,6 +14,10 @@ Here is where _luga_ comes in. We abstract unnecessary steps and allow you to do
 #### cover image
 [Stand Still. Stay Silent](http://sssscomic.com/index.php) - The relationships between Indo-European and Uralic languages by Minna Sundberg. 
 
+### Show, don't tell
+[![asciicast](https://asciinema.org/a/453323.svg)](https://asciinema.org/a/453323)
+
+
 ### Installation
 ```bash
 python -m pip install -U luga
