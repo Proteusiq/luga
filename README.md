@@ -78,3 +78,4 @@ git tag -d v*.*.* && git push origin tag -d v*.*.*
 - [X] write github actions
 - [ ] create a smart data checker (a fast List[str], what do with none strings)
 - [ ] make it faster with Cython
+- [ ] get NDArray typing correctly

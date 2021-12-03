@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any, List, Optional, Tuple, Union
 import httpx
 from fasttext import FastText, load_model  # type: ignore
+from numpy import array
 from numpy.typing import NDArray
 
 
@@ -85,22 +86,33 @@ def beautify_one(
 
 
 def beautify_many(
-    responses: Tuple[str, NDArray], threshold: Optional[float] = 0.5
-) -> List[Language]:
+    responses: Tuple[str, NDArray],
+    threshold: Optional[float] = 0.5,
+    only_language: Optional[bool] = False,
+    to_array: Optional[bool] = False,
+) -> Union[List[str], List[Language], NDArray]:
 
     # ([['__label__da'], ['__label__en']],
     # [array([0.99840873], dtype=float32), array([0.9827167], dtype=float32)])
 
     languages, scores = responses
-    results = []
+    results_ = []
     for lang, score_ in zip(languages, scores):
         score = score_.squeeze().item()
 
         if score < threshold:
-            results.append(Language())
+            results_.append(Language())
 
         else:
-            results.append(Language(name=lang[0].replace("__label__", ""), score=score))
+            results_.append(
+                Language(name=lang[0].replace("__label__", ""), score=score)
+            )
+
+    if only_language:
+        results = [response.name for response in results_]
+
+    if to_array:
+        results = array(results)
 
     return results
 
