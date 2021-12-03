@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - '*.*.*'
+      - "*.*.*"
 
 jobs:
   qa:
@@ -43,13 +43,14 @@ jobs:
 
       - name: Run Pre-commits and Tests
         run: |
-            poetry run pre-commit install
-            poetry run pre-commit run --all-files
-            PYTHONPATH=luga/ poetry run python -m pytest --verbose --runslow tests/
+          poetry run pre-commit install
+          poetry run pre-commit run --all-files
+          PYTHONPATH=luga/ poetry run python -m pytest --verbose --runslow tests/
 
   release:
     name: Release
     needs: qa
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
