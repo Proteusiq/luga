@@ -108,6 +108,7 @@ def beautify_many(
                 Language(name=lang[0].replace("__label__", ""), score=score)
             )
 
+    # results = results_
     if only_language:
         results = [response.name for response in results_]
 
