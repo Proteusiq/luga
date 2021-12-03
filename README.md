@@ -79,3 +79,4 @@ git tag -d v*.*.* && git push origin tag -d v*.*.*
 - [ ] create a smart data checker (a fast List[str], what do with none strings)
 - [ ] make it faster with Cython
 - [ ] get NDArray typing correctly
+- [ ] fix `artifacts.py` line 111 cast to List[str] that causes issues

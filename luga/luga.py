@@ -16,7 +16,7 @@ def languages(
     threshold: Optional[float] = 0.5,
     only_language: Optional[bool] = False,
     to_array: Optional[bool] = False,
-) -> Union[List[str], List[Language], NDArray]:
+) -> Union[List[Union[str, Language]], NDArray]:
 
     assert isinstance(
         texts, List

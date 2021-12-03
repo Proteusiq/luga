@@ -90,27 +90,25 @@ def beautify_many(
     threshold: Optional[float] = 0.5,
     only_language: Optional[bool] = False,
     to_array: Optional[bool] = False,
-) -> Union[List[str], List[Language], NDArray]:
+) -> Union[List[Union[str, Language]], NDArray]:
 
     # ([['__label__da'], ['__label__en']],
     # [array([0.99840873], dtype=float32), array([0.9827167], dtype=float32)])
 
     languages, scores = responses
-    results_ = []
+    results = []
+
     for lang, score_ in zip(languages, scores):
         score = score_.squeeze().item()
 
         if score < threshold:
-            results_.append(Language())
+            results.append(Language())
 
         else:
-            results_.append(
-                Language(name=lang[0].replace("__label__", ""), score=score)
-            )
+            results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
-    # results = results_
     if only_language:
-        results = [response.name for response in results_]
+        results = [response.name for response in results]  # type: ignore
 
     if to_array:
         results = array(results)
