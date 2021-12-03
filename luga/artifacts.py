@@ -107,6 +107,7 @@ def beautify_many(
         else:
             results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
+    # smelly code
     if only_language:
         results = [response.name for response in results]  # type: ignore
 
