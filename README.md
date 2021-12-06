@@ -53,7 +53,7 @@ fmodel.predict(["the world has ended yesterday"])
 # ([['__label__en']], [array([0.98046654], dtype=float32)])
 ```
 
-With `luga`, you can use masking
+With `luga`, you can create masking
 ```python
 ...
 examples = ["Jeg har ikke en rød reje", "Det blæser en halv pelican", "We are not robots yet"]
