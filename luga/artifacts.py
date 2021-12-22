@@ -70,24 +70,21 @@ class Language:
         return item.get(key)
 
 
-def beautify_one(
-    response: Tuple[str, NDArray], threshold: Optional[float] = 0.5
-) -> Language:
+def beautify_one(response: Tuple[str, NDArray]) -> Language:
 
     score_: NDArray
     language, score_ = response
     # (('__label__da',), array([0.99840873]))
-    score = score_.squeeze().item()
 
-    if score < threshold:
+    if not score_:
         return Language()
 
+    score = score_.squeeze().item()
     return Language(name=language[0].replace("__label__", ""), score=score)
 
 
 def beautify_many(
     responses: Tuple[str, NDArray],
-    threshold: Optional[float] = 0.5,
     only_language: Optional[bool] = False,
     to_array: Optional[bool] = False,
 ) -> Union[List[Union[str, Language]], NDArray]:
@@ -99,12 +96,10 @@ def beautify_many(
     results = []
 
     for lang, score_ in zip(languages, scores):
-        score = score_.squeeze().item()
-
-        if score < threshold:
+        if not score_:
             results.append(Language())
-
         else:
+            score = score_.squeeze().item()
             results.append(Language(name=lang[0].replace("__label__", ""), score=score))
 
     # smelly code
