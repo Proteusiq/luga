@@ -7,8 +7,8 @@ def language(text: str, threshold: Optional[float] = 0.5) -> Language:
 
     assert isinstance(text, str), f"text ought be type str, we got {type(text)}"
 
-    response = fmodel.predict(text)
-    return beautify_one(response=response, threshold=threshold)
+    response = fmodel.predict(text, threshold=threshold)
+    return beautify_one(response=response)
 
 
 def languages(
@@ -22,10 +22,9 @@ def languages(
         texts, List
     ), f"text ought be type List[str], we got {type(texts)}"
 
-    responses_ = fmodel.predict(texts)
+    responses_ = fmodel.predict(texts, threshold=threshold)
     responses = beautify_many(
         responses=responses_,
-        threshold=threshold,
         only_language=only_language,
         to_array=to_array,
     )
