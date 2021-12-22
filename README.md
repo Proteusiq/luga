@@ -53,7 +53,7 @@ fmodel.predict(["the world has ended yesterday"])
 # ([['__label__en']], [array([0.98046654], dtype=float32)])
 ```
 
-With `luga`, we can create mask for a filtering pipeline 
+With `luga`, we can create mask for a filtering pipeline
 ```python
 ...
 examples = ["Jeg har ikke en rød reje", "Det blæser en halv pelican", "We are not robots yet"]
