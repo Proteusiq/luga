@@ -76,7 +76,7 @@ def beautify_one(response: Tuple[str, NDArray]) -> Language:
     language, score_ = response
     # (('__label__da',), array([0.99840873]))
 
-    if not score_:
+    if not score_.size:
         return Language()
 
     score = score_.squeeze().item()
@@ -96,7 +96,7 @@ def beautify_many(
     results = []
 
     for lang, score_ in zip(languages, scores):
-        if not score_:
+        if not score_.size:
             results.append(Language())
         else:
             score = score_.squeeze().item()
