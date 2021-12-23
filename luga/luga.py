@@ -1,5 +1,5 @@
 from typing import List, Optional, Union
-from numpy.typing import NDArray
+from nptyping import NDArray
 from luga.artifacts import fmodel, beautify_one, beautify_many, Language
 
 

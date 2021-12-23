@@ -88,3 +88,4 @@ git tag -d v*.*.* && git push origin tag -d v*.*.*
 - [ ] make it faster with Cython
 - [ ] get NDArray typing correctly
 - [ ] fix `artifacts.py` line 111 cast to List[str] that causes issues
+- [ ] remove nptyping when more packages move to numpy > 1.21

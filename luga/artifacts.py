@@ -4,7 +4,7 @@ from typing import Any, List, Optional, Tuple, Union
 import httpx
 from fasttext import FastText, load_model  # type: ignore
 from numpy import array
-from numpy.typing import NDArray
+from nptyping import NDArray
 
 
 __MODEL_PATH = Path(__file__).parent / "models"
