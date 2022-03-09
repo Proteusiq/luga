@@ -35,6 +35,25 @@ print(language("the world has ended yesterday"))
 # Language(name='en', score=0.9804665446281433)
 ```
 
+
+With the list of texts, we can create mask for a filtering pipeline, that can be used for example with DataFrames
+
+```python
+from luga import language
+import pandas as pd 
+
+examples = ["Jeg har ikke en rød reje", "Det blæser en halv pelican", "We are not robots yet"]
+languages(texts=examples, only_language=True, to_array=True) == "en"
+# output
+# array([False, False, True])
+
+dataf = pd.DataFrame({"text": examples})
+dataf.loc[lambda d: languages(texts=d["text"].to_list(), only_language=True, to_array=True) == "en"]
+# output
+# 2    We are not robots yet
+# Name: text, dtype: object
+```
+
 ### Without Luga:
 
 Download the model
@@ -53,14 +72,6 @@ fmodel.predict(["the world has ended yesterday"])
 # ([['__label__en']], [array([0.98046654], dtype=float32)])
 ```
 
-With `luga`, we can create mask for a filtering pipeline
-```python
-...
-examples = ["Jeg har ikke en rød reje", "Det blæser en halv pelican", "We are not robots yet"]
-languages(texts=examples, only_language=True, to_array=True) == "en"
-# output
-# array([False, False, True])
-```
 
 ### Dev:
 
