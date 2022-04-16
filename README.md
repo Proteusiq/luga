@@ -6,7 +6,7 @@ Luga
 
 
 _Luga_ is a Swahili word for language. [fastText](https://github.com/facebookresearch/fastText) provides blazing-fast
-language detection tool. Lamentably, [fastText's](https://fasttext.cc/docs/en/support.html) API is beauty-less and the documentation is a bit fuzzy.
+language detection tool. Lamentably, [fastText's](https://fasttext.cc/docs/en/support.html) API is beauty-less, and the documentation is a bit fuzzy.
 It is also funky that we have to manually [download](https://fasttext.cc/docs/en/language-identification.html) and load models.
 
 Here is where _luga_ comes in. We abstract unnecessary steps and allow you to do precisely one thing: detecting text language.
@@ -36,7 +36,7 @@ print(language("the world has ended yesterday"))
 ```
 
 
-With the list of texts, we can create mask for a filtering pipeline, that can be used for example with DataFrames
+With the list of texts, we can create a mask for a filtering pipeline, that can be used, for example, with DataFrames
 
 ```python
 from luga import language
@@ -95,7 +95,7 @@ git tag -d v*.*.* && git push origin tag -d v*.*.*
 - [X] auto checkers with pre-commit | invoke
 - [X] write more tests
 - [X] write github actions
-- [ ] create a smart data checker (a fast List[str], what do with none strings)
+- [ ] create an intelligent data checker (a fast List[str], what do with none strings)
 - [ ] make it faster with Cython
 - [ ] get NDArray typing correctly
 - [ ] fix `artifacts.py` line 111 cast to List[str] that causes issues
