@@ -40,7 +40,7 @@ With the list of texts, we can create a mask for a filtering pipeline, that can 
 
 ```python
 from luga import language
-import pandas as pd 
+import pandas as pd
 
 examples = ["Jeg har ikke en rød reje", "Det blæser en halv pelican", "We are not robots yet"]
 languages(texts=examples, only_language=True, to_array=True) == "en"
