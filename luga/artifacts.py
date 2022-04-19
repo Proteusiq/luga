@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional, Tuple, Union
+import ssl
 import httpx
 from fasttext import FastText, load_model  # type: ignore
 from numpy import array
@@ -27,9 +28,12 @@ def model_loader(*, model_url: str, re_download: Optional[bool] = False) -> None
         __MODEL_PATH.mkdir(exist_ok=True)
 
         timeout = httpx.Timeout(10.0, connect=60.0)
-        with httpx.Client(timeout=timeout) as client, __MODEL_FILE.open(
-            "wb"
-        ) as f_model:
+        ssl_context = httpx.create_ssl_context()
+        ssl_context.options ^= ssl.OP_NO_TLSv1
+
+        with httpx.Client(
+            timeout=timeout, verify=ssl_context
+        ) as client, __MODEL_FILE.open("wb") as f_model:
             model_content = client.get(model_url)
             f_model.write(model_content.content)
         # print("Downloading completed!")
