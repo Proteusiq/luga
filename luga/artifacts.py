@@ -1,8 +1,7 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional, Tuple, Union
-import ssl
-import httpx
+from gdown import download
 from fasttext import FastText, load_model  # type: ignore
 from numpy import array
 from nptyping import NDArray
@@ -10,7 +9,7 @@ from nptyping import NDArray
 
 __MODEL_PATH = Path(__file__).parent / "models"
 __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
-__MODEL_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
+__MODEL_URL = "https://drive.google.com/u/0/uc?id=1OC7C-eL31hoectGueYl6nfioANrZK2WI"
 
 
 def model_loader(*, model_url: str, re_download: Optional[bool] = False) -> None:
@@ -27,15 +26,7 @@ def model_loader(*, model_url: str, re_download: Optional[bool] = False) -> None
         # print(f"Downloading language model from {__MODEL_URL!r}. Runs only once!")
         __MODEL_PATH.mkdir(exist_ok=True)
 
-        timeout = httpx.Timeout(10.0, connect=60.0)
-        ssl_context = httpx.create_ssl_context()
-        ssl_context.options ^= ssl.OP_NO_TLSv1
-
-        with httpx.Client(
-            timeout=timeout, verify=ssl_context
-        ) as client, __MODEL_FILE.open("wb") as f_model:
-            model_content = client.get(model_url)
-            f_model.write(model_content.content)
+        download(url=model_url, output=__MODEL_FILE.as_posix(), quiet=True)
         # print("Downloading completed!")
 
 
