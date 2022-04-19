@@ -88,6 +88,8 @@ git push origin tag v*.*.*
 
 # to delete tag:
 git tag -d v*.*.* && git push origin tag -d v*.*.*
+
+# change project_toml and __init__.py to reflect new version
 ```
 
 #### TODO:
