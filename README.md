@@ -1,6 +1,6 @@
 Luga
 ==============================
-- A blazing fast language detection using fastText's language models
+- A blazing fast language detection using fastText's language models.
 
 ![Languages](https://user-images.githubusercontent.com/14926709/143822756-8fd6437f-6c99-4a9f-9718-37f086955583.png)
 
