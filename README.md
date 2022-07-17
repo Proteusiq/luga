@@ -30,7 +30,7 @@ It is done only once.
 ```python
 from luga import language
 
-print(language("the world has ended yesterday"))
+print(language("the world ended yesterday"))
 
 # Language(name='en', score=0.9804665446281433)
 ```
