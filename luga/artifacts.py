@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields
 from pathlib import Path
 from typing import Any, List, Optional, Tuple, Union
 from gdown import download
@@ -57,7 +57,7 @@ class Language:
 
     @staticmethod
     def keys() -> List[str]:
-        return ["name", "score"]
+        return [field.name for field in fields(Language)]
 
     def __getitem__(self, key: str) -> Union[Any, str, float]:
         item = {"name": self.name, "score": self.score}
