@@ -28,7 +28,7 @@ jobs:
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org | POETRY_HOME=$HOME/.poetry/bin/poetry python3
-          echo "::set-env name=PATH::$HOME/.poetry/bin:$PATH"
+          export PATH="/home/runner/.poetry/bin/poetry/bin:$PATH
       - name: Configure poetry
         run: poetry config virtualenvs.in-project true
       - name: Set up cache
