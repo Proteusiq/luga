@@ -28,6 +28,7 @@ jobs:
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org | POETRY_HOME=$HOME/.poetry/bin/poetry python3
+      - name: Set Poetry
         run: |
           echo -e '\nexport PATH="/home/runner/.poetry/bin/poetry/bin:$PATH"' >> $HOME/.bashrc && source $HOME/.bashrc
 
