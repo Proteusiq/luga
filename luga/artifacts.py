@@ -82,7 +82,7 @@ def beautify_many(
     responses: Tuple[str, NDArray],
     only_language: Optional[bool] = False,
     to_array: Optional[bool] = False,
-) -> Union[List[Union[str, Language]], NDArray]:  # type: ignore
+) -> Union[List[Union[str, Language]], NDArray]:
 
     # ([['__label__da'], ['__label__en']],
     # [array([0.99840873], dtype=float32), array([0.9827167], dtype=float32)])
