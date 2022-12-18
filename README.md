@@ -32,7 +32,7 @@ from luga import language
 
 print(language("the world ended yesterday"))
 
-# Language(name='en', score=0.9804665446281433)
+# Language(name='en', score=0.98)
 ```
 
 
