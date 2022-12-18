@@ -43,18 +43,18 @@ repos:
       - id: python-check-blanket-noqa
       - id: python-use-type-annotations
       - id: text-unicode-replacement-char
-   - repo: https://github.com/pre-commit/mirrors-mypy
-     rev: 9feadeb
-     hooks:
-       - id: mypy
-         exclude: ^tests/
-         args:
-           [
-             --disallow-untyped-defs,
-             --check-untyped-defs,
-             --warn-redundant-casts,
-             --no-implicit-optional,
-             --no-strict-optional,
-             --ignore-missing-imports,
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 9feadeb
+    hooks:
+      - id: mypy
+        exclude: ^tests/
+        args:
+          [
+            --disallow-untyped-defs,
+            --check-untyped-defs,
+            --warn-redundant-casts,
+            #--no-implicit-optional,
+            --no-strict-optional,
+            --ignore-missing-imports,
 
-           ]
+          ]
