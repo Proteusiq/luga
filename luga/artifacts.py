@@ -9,7 +9,7 @@ from nptyping import NDArray
 
 __MODEL_PATH = Path(__file__).parent / "models"
 __MODEL_FILE = __MODEL_PATH / "language.bin"  # lid.176.bim 128MB model
-__MODEL_URL = "https://drive.google.com/u/0/uc?id=1OC7C-eL31hoectGueYl6nfioANrZK2WI"
+__MODEL_URL = "https://drive.google.com/drive/u/0/folders/12pf6zt78An-vVO_lDRoO4wZIoELjTavk"
 
 
 def model_loader(*, model_url: str, re_download: Optional[bool] = False) -> None:
